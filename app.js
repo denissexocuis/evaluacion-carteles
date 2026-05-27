@@ -39,12 +39,14 @@ function verificarAcceso() {
 
     if (dbCodigos.evaluadores.includes(hash)) {
         sesionHash = hash;
-        // Extraemos 'FIEE' (últimos 4 caracteres) para la llave de desencriptación
         codigoPlanoProfesor = codigoInput.substring(codigoInput.length - 4); 
         
         document.getElementById('login-section').style.display = "none";
         document.getElementById('evaluador-section').style.display = "block";
-        document.getElementById('header-app').querySelector('p').innerText = "Evaluando...";
+        
+        document.getElementById('rubrica-section').style.display = "none"; 
+        
+        document.getElementById('header-app').querySelector('p').innerText = "Evaluación de estudiantes.";
         
         actualizarTablaEvaluados();
     } else if (dbCodigos.alumnos.includes(hash)) {
