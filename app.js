@@ -46,7 +46,7 @@ function verificarAcceso() {
         
         document.getElementById('rubrica-section').style.display = "none"; 
         
-        document.getElementById('header-app').querySelector('p').innerText = "Evaluación de estudiantes.";
+        document.getElementById('header-app').querySelector('p').innerText = "Panel de evaluación";
         
         actualizarTablaEvaluados();
     } else if (dbCodigos.alumnos.includes(hash)) {
