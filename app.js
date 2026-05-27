@@ -186,6 +186,8 @@ function buscarAlumnoParaEvaluar() {
     
     document.getElementById('evaluando-nombre-lbl').innerText = `Evaluando a: ${nombreReal} (${studentCode})`;
     rubricaDiv.style.display = "block";
+
+    document.getElementById('marcador-total-envivo').innerText = "0.00"; // Reinicia el marcador-
 }
 
 // Enviar y guardar la evaluación DIRECTO EN FIREBASE 
