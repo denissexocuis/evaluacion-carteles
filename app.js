@@ -7,7 +7,7 @@ let sesionHash = "";
 let alumnoCaliHash = ""; 
 let codigoPlanoProfesor = ""; 
 
-const FIREBASE_URL = 'https://console.firebase.google.com/u/0/project/carteles-fiee-2026/database/carteles-fiee-2026-default-rtdb/data/~2F';
+const FIREBASE_URL = 'https://carteles-fiee-2026-default-rtdb.firebaseio.com/';
 
 
 window.onload = async function() {
