@@ -38,7 +38,7 @@ function verificarAcceso() {
         document.getElementById('evaluador-section').style.display = "block";
         document.getElementById('header-app').querySelector('p').innerText = "Evaluador.";
         
-        // Pintar la tabla de alumnos que este profesor ya evaluó
+        // pintar la tabla de alumnos que este profesor ya evaluó
         actualizarTablaEvaluados();
     } else if (dbCodigos.alumnos.includes(hash)) {
         sesionHash = hash;
@@ -62,7 +62,7 @@ function actualizarTablaEvaluados() {
             // Buscamos cuál código plano coincide con ese hash
             let codigoPlano = "Código Registrado";
             if(dbNombres) {
-                // Buscamos la llave original (A-0001, B-0002...) en el archivo descifrado
+                
                 for (let key in dbNombres) {
                     if (CryptoJS.SHA256(key).toString() === hashEstudiante) {
                         codigoPlano = key;
