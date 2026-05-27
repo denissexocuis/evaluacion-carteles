@@ -76,12 +76,12 @@ function actualizarTablaEvaluados() {
                     }
                 }
             }
-            tabla += `<tr><td>✅ <strong>${codigoPlano}</strong></td></tr>`;
+            tabla += `<tr><td><strong>${codigoPlano}</strong></td></tr>`;
         }
         tabla += `</table>`;
         listaDiv.innerHTML = tabla;
     } else {
-        listaDiv.innerHTML = `<p style="color: #777; font-style: italic;">Aún no has evaluado a ningún alumno en esta sesión.</p>`;
+        listaDiv.innerHTML = `<p style="color: #777; font-style: italic;">Aún no has evaluado a ningún alumno.</p>`;
     }
 }
 
@@ -188,6 +188,8 @@ function buscarAlumnoParaEvaluar() {
     }
     
     document.getElementById('evaluando-nombre-lbl').innerText = `Evaluando a: ${nombreReal} (${studentCode})`;
+
+    document.getElementById('rubrica-form').reset();
     
     document.getElementById('marcador-total-envivo').innerText = "0.00";
     

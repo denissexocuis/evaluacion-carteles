@@ -7,7 +7,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.1">
 </head>
 <body>
 
@@ -34,7 +34,6 @@
     </div>
 
     <div id="evaluador-section" class="view-section">
-        <h2>Panel de Evaluador</h2>
         
         <div class="criterio-block" style="border-left-color: #27ae60; margin-bottom: 20px;">
             <h3>Alumnos Evaluados</h3>
@@ -47,8 +46,7 @@
         <div id="evaluador-error" class="alert" style="display:none;"></div>
         
         <div id="success-container" class="alert" style="display:none; background-color: #d4edda; color: #155724; border-color: #c3e6cb; margin-top: 20px; text-align: center;">
-            <h3>¡Evaluación guardada con éxito en la nube!</h3>
-            <p>Ya puedes ingresar el código de otro alumno arriba.</p>
+            <h3>¡Evaluación guardada con éxito!</h3>
         </div>
 
         <div id="rubrica-section" style="display: none; margin-top: 30px;">
@@ -196,12 +194,12 @@
                 </div>
 
                 <div class="criterio-block">
-                    <h4>Observaciones / Comentarios adicionales:</h4> [cite: 7]
+                    <h4>Observaciones / Comentarios adicionales:</h4>
                     <textarea id="observaciones-input" rows="4" style="width:100%; padding:10px; border-radius:5px;" placeholder="Escribe aquí tus comentarios para el alumno..."></textarea>
                 </div>
 
                 <div style="background: #ecf0f1; padding: 15px; margin: 20px 0; border-radius: 5px; text-align: center;">
-                    <h3 style="margin: 0; color: #2c3e50;">Tu evaluación final es de: <span id="marcador-total-envivo" style="color: #2980b9; font-weight: bold;">0.00</span> / 30 puntos</h3> 
+                    <h3 style="margin: 0; color: #2c3e50;">Puntos totales: <span id="marcador-total-envivo" style="color: #2980b9; font-weight: bold;">0.00</span> / 30 puntos</h3> 
                 </div>
 
                 <button type="submit" class="btn">Enviar Evaluación</button>
