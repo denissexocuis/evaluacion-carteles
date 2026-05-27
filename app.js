@@ -87,7 +87,7 @@ function actualizarTablaEvaluados() {
 
 function mostrarVistaAlumno(hashAlumno) {
     document.getElementById('alumno-section').style.display = "block";
-    document.getElementById('header-app').querySelector('p').innerText = "Resultados.";
+    document.getElementById('header-app').querySelector('p').innerText = "Resultados";
     
     let conteo = 0;
     let sumas = [0,0,0,0,0,0,0];
