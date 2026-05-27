@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Evaluación de Carteles Científicos</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<div class="container">
+    <div id="header-app">
+        <h1>Evaluación de Carteles Científicos</h1>
+        <p>Introduce tu código de acceso para continuar.</p>
+    </div>
+
+    <div id="login-section">
+        <input type="password" id="access-code" class="input-text" placeholder="Código de acceso secreto...">
+        <button class="btn" onclick="verificarAcceso()">Ingresar</button>
+        <div id="login-error" class="alert" style="display:none;"></div>
+    </div>
+
+    <div id="alumno-section" class="view-section">
+        <h2>Estado de tu Evaluación</h2>
+        <div id="alumno-resumen"></div>
+        <div id="alumno-detalles" style="display:none;">
+            <h3>Desglose de Resultados y Comentarios</h3>
+            <div id="tabla-resultados-alumno"></div>
+        </div>
+    </div>
+
+    <div id="evaluador-section" class="view-section">
+        <h2>Panel del Evaluador</h2>
+        <p>Por favor, ingresa el código del alumno que vas a evaluar (Ej. B-0002):</p>
+        <input type="text" id="student-code-input" class="input-text" placeholder="Código oficial del alumno...">
+        <button class="btn" onclick="buscarAlumnoParaEvaluar()">Verificar Alumno</button>
+        <div id="evaluador-error" class="alert" style="display:none;"></div>
+
+        <div id="rubrica-section" style="display:none; margin-top: 25px;">
+            <h3 id="evaluando-nombre-lbl" style="color: #27ae60;"></h3>
+            <form id="rubrica-form" onsubmit="guardarEvaluacion(event)">
+                
+                <div class="criterio-block">
+                    <strong>1. Título y planteamiento del tema (Máx. 3 pts)</strong>
+                    <div class="radio-group">
+                        <label><input type="radio" name="c1" value="3" required> Excelente (3.00)</label>
+                        <label><input type="radio" name="c1" value="2.25"> Bueno (2.25)</label>
+                        <label><input type="radio" name="c1" value="1.5"> Satisfactorio (1.50)</label>
+                        <label><input type="radio" name="c1" value="0.75"> Insuficiente (0.75)</label>
+                    </div>
+                </div>
+
+                <div class="criterio-block">
+                    <strong>2. Objetivo e hipótesis (Máx. 4 pts)</strong>
+                    <div class="radio-group">
+                        <label><input type="radio" name="c2" value="4" required> Excelente (4.00)</label>
+                        <label><input type="radio" name="c2" value="3"> Bueno (3.00)</label>
+                        <label><input type="radio" name="c2" value="2"> Satisfactorio (2.00)</label>
+                        <label><input type="radio" name="c2" value="1"> Insuficiente (1.00)</label>
+                    </div>
+                </div>
+
+                <div class="criterio-block">
+                    <strong>3. Metodología (Máx. 5 pts)</strong>
+                    <div class="radio-group">
+                        <label><input type="radio" name="c3" value="5" required> Excelente (5.00)</label>
+                        <label><input type="radio" name="c3" value="3.75"> Bueno (3.75)</label>
+                        <label><input type="radio" name="c3" value="2.5"> Satisfactorio (2.50)</label>
+                        <label><input type="radio" name="c3" value="1.25"> Insuficiente (1.25)</label>
+                    </div>
+                </div>
+
+                <div class="criterio-block">
+                    <strong>4. Resultados e impacto (Máx. 6 pts)</strong>
+                    <div class="radio-group">
+                        <label><input type="radio" name="c4" value="6" required> Excelente (6.00)</label>
+                        <label><input type="radio" name="c4" value="4.5"> Bueno (4.50)</label>
+                        <label><input type="radio" name="c4" value="3"> Satisfactorio (3.00)</label>
+                        <label><input type="radio" name="c4" value="1.5"> Insuficiente (1.50)</label>
+                    </div>
+                </div>
+
+                <div class="criterio-block">
+                    <strong>5. Conclusiones (Máx. 4 pts)</strong>
+                    <div class="radio-group">
+                        <label><input type="radio" name="c5" value="4" required> Excelente (4.00)</label>
+                        <label><input type="radio" name="c5" value="3"> Bueno (3.00)</label>
+                        <label><input type="radio" name="c5" value="2"> Satisfactorio (2.00)</label>
+                        <label><input type="radio" name="c5" value="1"> Insuficiente (1.00)</label>
+                    </div>
+                </div>
+
+                <div class="criterio-block">
+                    <strong>6. Referencias y sustento científico (Máx. 3 pts)</strong>
+                    <div class="radio-group">
+                        <label><input type="radio" name="c6" value="3" required> Excelente (3.00)</label>
+                        <label><input type="radio" name="c6" value="2.25"> Bueno (2.25)</label>
+                        <label><input type="radio" name="c6" value="1.5"> Satisfactorio (1.50)</label>
+                        <label><input type="radio" name="c6" value="0.75"> Insuficiente (0.75)</label>
+                    </div>
+                </div>
+
+                <div class="criterio-block">
+                    <strong>7. Exposición oral y dominio del tema (Máx. 5 pts)</strong>
+                    <div class="radio-group">
+                        <label><input type="radio" name="c7" value="5" required> Excelente (5.00)</label>
+                        <label><input type="radio" name="c7" value="3.75"> Bueno (3.75)</label>
+                        <label><input type="radio" name="c7" value="2.5"> Satisfactorio (2.50)</label>
+                        <label><input type="radio" name="c7" value="1.25"> Insuficiente (1.25)</label>
+                    </div>
+                </div>
+
+                <div class="criterio-block">
+                    <strong>Observaciones / Comentarios Adicionales:</strong>
+                    <textarea id="observaciones-input" class="input-text" rows="4" placeholder="Escribe aquí tu retroalimentación..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Enviar Evaluación</button>
+            </form>
+            
+            <div id="success-container" style="display:none;">
+                <div class="success-box">¡Evaluación procesada con éxito!</div>
+                <p style="text-align:center;">Descarga el archivo modificado y reemplázalo en el repositorio administrativo:</p>
+                <center><button class="btn btn-download" onclick="descargarJSON()">⬇️ Descargar Respuestas Actualizadas</button></center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
