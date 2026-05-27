@@ -1,4 +1,4 @@
-// variables globales para el estado de la aplicación
+// Variables globales para el estado de la aplicación
 let dbCodigos = {};
 let dbNombres = {};
 let dbEvaluaciones = {};
@@ -7,18 +7,27 @@ let sesionHash = "";
 let alumnoCaliHash = ""; 
 let codigoPlanoProfesor = ""; 
 
-// cargar archivos de datos al iniciar la página
+const FIREBASE_URL = 'https://console.firebase.google.com/u/0/project/carteles-fiee-2026/database/carteles-fiee-2026-default-rtdb/data/~2F';
+
+
 window.onload = async function() {
     try {
+
         dbCodigos = await fetch('codigos.json').then(res => res.json());
-        dbEvaluaciones = await fetch('evaluaciones.json').then(res => res.json()).catch(() => ({}));
         dbNombres = await fetch('alumnos_maestro.json').then(res => res.json()).catch(() => ({}));
+        
+
+        dbEvaluaciones = await fetch(`${FIREBASE_URL}evaluaciones.json`)
+            .then(res => res.json())
+            .then(data => data || {}) // Si la base de datos está vacía, inicializa como objeto vacío
+            .catch(() => ({}));
+            
     } catch (e) {
-        console.error("Error al cargar las configuraciones locales .json", e);
+        console.error("Error al inicializar las configuraciones de la app:", e);
     }
 };
 
-// validar el acceso en la pantalla de inicio
+// Validar el acceso en la pantalla de inicio
 function verificarAcceso() {
     const codigoInput = document.getElementById('access-code').value.trim();
     const errorDiv = document.getElementById('login-error');
@@ -26,19 +35,17 @@ function verificarAcceso() {
 
     if (!codigoInput) return;
 
-    // Calcular SHA-256 del código ingresado
     const hash = CryptoJS.SHA256(codigoInput).toString();
 
     if (dbCodigos.evaluadores.includes(hash)) {
         sesionHash = hash;
-
+        // Extraemos 'FIEE' (últimos 4 caracteres) para la llave de desencriptación
         codigoPlanoProfesor = codigoInput.substring(codigoInput.length - 4); 
         
         document.getElementById('login-section').style.display = "none";
         document.getElementById('evaluador-section').style.display = "block";
-        document.getElementById('header-app').querySelector('p').innerText = "Evaluador.";
+        document.getElementById('header-app').querySelector('p').innerText = "Evaluando...";
         
-        // pintar la tabla de alumnos que este profesor ya evaluó
         actualizarTablaEvaluados();
     } else if (dbCodigos.alumnos.includes(hash)) {
         sesionHash = hash;
@@ -54,15 +61,12 @@ function verificarAcceso() {
 function actualizarTablaEvaluados() {
     const listaDiv = document.getElementById('lista-evaluados-container');
     
-
     if (dbEvaluaciones[sesionHash] && Object.keys(dbEvaluaciones[sesionHash]).length > 0) {
         let tabla = `<table><tr><th>Códigos de Alumnos ya evaluados</th></tr>`;
         
         for (let hashEstudiante in dbEvaluaciones[sesionHash]) {
-            // Buscamos cuál código plano coincide con ese hash
             let codigoPlano = "Código Registrado";
             if(dbNombres) {
-                
                 for (let key in dbNombres) {
                     if (CryptoJS.SHA256(key).toString() === hashEstudiante) {
                         codigoPlano = key;
@@ -75,14 +79,13 @@ function actualizarTablaEvaluados() {
         tabla += `</table>`;
         listaDiv.innerHTML = tabla;
     } else {
-        listaDiv.innerHTML = `<p style="color: #777; italic: true;">Aún no has evaluado a ningún alumno en esta sesión.</p>`;
+        listaDiv.innerHTML = `<p style="color: #777; font-style: italic;">Aún no has evaluado a ningún alumno en esta sesión.</p>`;
     }
 }
 
-// mostrar promedios y comentarios al estudiante
 function mostrarVistaAlumno(hashAlumno) {
     document.getElementById('alumno-section').style.display = "block";
-    document.getElementById('header-app').querySelector('p').innerText = "Consulta de Resultados.";
+    document.getElementById('header-app').querySelector('p').innerText = "Resultados.";
     
     let conteo = 0;
     let sumas = [0,0,0,0,0,0,0];
@@ -135,7 +138,7 @@ function mostrarVistaAlumno(hashAlumno) {
         document.getElementById('tabla-resultados-alumno').innerHTML = tabla;
     }
 }
-// buscar codigo de alumno de cualquier area
+
 function buscarAlumnoParaEvaluar() {
     const studentCode = document.getElementById('student-code-input').value.trim().toUpperCase();
     const errDiv = document.getElementById('evaluador-error');
@@ -150,9 +153,8 @@ function buscarAlumnoParaEvaluar() {
 
     const hashEstudiante = CryptoJS.SHA256(studentCode).toString();
 
-    // validar si el alumno existe
     if (!dbCodigos.alumnos.includes(hashEstudiante)) {
-        errDiv.innerText = "El código de alumno ingresado no existe.";
+        errDiv.innerText = "Error: El código de alumno ingresado no existe en los registros.";
         errDiv.style.display = "block";
         return;
     }
@@ -186,8 +188,8 @@ function buscarAlumnoParaEvaluar() {
     rubricaDiv.style.display = "block";
 }
 
-// guardar evaluación en la memoria local del navegador
-function guardarEvaluacion(event) {
+// Enviar y guardar la evaluación DIRECTO EN FIREBASE 
+async function guardarEvaluacion(event) {
     event.preventDefault();
 
     const c1 = parseFloat(document.querySelector('input[name="c1"]:checked').value);
@@ -201,11 +203,8 @@ function guardarEvaluacion(event) {
 
     const total = c1 + c2 + c3 + c4 + c5 + c6 + c7;
 
-    if (!dbEvaluaciones[sesionHash]) {
-        dbEvaluaciones[sesionHash] = {};
-    }
 
-    dbEvaluaciones[sesionHash][alumnoCaliHash] = {
+    const payload = {
         "puntos_criterio_1": c1,
         "puntos_criterio_2": c2,
         "puntos_criterio_3": c3,
@@ -217,9 +216,25 @@ function guardarEvaluacion(event) {
         "comentarios": obs
     };
 
-    // actualizar la tablita de control del profesor inmediatamente
-    actualizarTablaEvaluados();
+    try {
+        // petición HTTP PUT
+        await fetch(`${FIREBASE_URL}evaluaciones/${sesionHash}/${alumnoCaliHash}.json`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
 
-    document.getElementById('rubrica-form').style.display = "none";
-    document.getElementById('success-container').style.display = "block";
+        // actualizar  la copia local
+        if (!dbEvaluaciones[sesionHash]) dbEvaluaciones[sesionHash] = {};
+        dbEvaluaciones[sesionHash][alumnoCaliHash] = payload;
+        
+        actualizarTablaEvaluados();
+
+        document.getElementById('rubrica-form').style.display = "none";
+        document.getElementById('success-container').style.display = "block";
+
+    } catch (error) {
+        console.error("Error al guardar en Firebase:", error);
+        alert("Hubo un error de conexión con la base de datos. Inténtalo de nuevo.");
+    }
 }
