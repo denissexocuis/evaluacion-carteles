@@ -238,3 +238,18 @@ async function guardarEvaluacion(event) {
         alert("Hubo un error de conexión con la base de datos. Inténtalo de nuevo.");
     }
 }
+
+// calcula la suma dinámica del puntaje
+function calcularTotalEnVivo() {
+    let total = 0;
+    
+    for (let i = 1; i <= 7; i++) {
+        const seleccionado = document.querySelector(`input[name="c${i}"]:checked`);
+        if (seleccionado) {
+            total += parseFloat(seleccionado.value);
+        }
+    }
+    
+    // poner el resultado con dos decimales en un recuadro gris
+    document.getElementById('marcador-total-envivo').innerText = total.toFixed(2);
+}

@@ -44,93 +44,160 @@
         <button class="btn" onclick="buscarAlumnoParaEvaluar()">Verificar Alumno</button>
         <div id="evaluador-error" class="alert" style="display:none;"></div>
 
-        <div id="rubrica-section" style="display:none; margin-top: 25px;">
-            <h3 id="evaluando-nombre-lbl" style="color: #27ae60;"></h3>
-            <form id="rubrica-form" onsubmit="guardarEvaluacion(event)">
-                
-                <div class="criterio-block">
-                    <strong>1. Título y planteamiento del tema (Máx. 3 pts)</strong>
-                    <div class="radio-group">
-                        <label><input type="radio" name="c1" value="3" required> Excelente (3.00)</label>
-                        <label><input type="radio" name="c1" value="2.25"> Bueno (2.25)</label>
-                        <label><input type="radio" name="c1" value="1.5"> Satisfactorio (1.50)</label>
-                        <label><input type="radio" name="c1" value="0.75"> Insuficiente (0.75)</label>
-                    </div>
-                </div>
+       <form id="rubrica-form" onsubmit="guardarEvaluacion(event)">
+    <h3 id="evaluando-nombre-lbl" style="color: #2c3e50; margin-bottom: 20px;">Evaluando a: </h3>
 
-                <div class="criterio-block">
-                    <strong>2. Objetivo e hipótesis (Máx. 4 pts)</strong>
-                    <div class="radio-group">
-                        <label><input type="radio" name="c2" value="4" required> Excelente (4.00)</label>
-                        <label><input type="radio" name="c2" value="3"> Bueno (3.00)</label>
-                        <label><input type="radio" name="c2" value="2"> Satisfactorio (2.00)</label>
-                        <label><input type="radio" name="c2" value="1"> Insuficiente (1.00)</label>
-                    </div>
-                </div>
+    <div class="criterio-block">
+        <h4>1. Título y planteamiento del tema (Máx 3 pts)</h4> 
+        <label>
+            <input type="radio" name="c1" value="3" required onchange="calcularTotalEnVivo()"> 
+            <strong>Excelente (3.0 pts):</strong> Título claro, atractivo y totalmente relacionado con el contenido. 
+        </label><br>
+        <label>
+            <input type="radio" name="c1" value="2.25"> 
+            <strong>Bueno (2.25 pts):</strong> Título claro y adecuado. 
+        </label><br>
+        <label>
+            <input type="radio" name="c1" value="1.5"> 
+            <strong>Satisfactorio (1.5 pts):</strong> Título poco específico. 
+        </label><br>
+        <label>
+            <input type="radio" name="c1" value="0.75"> 
+            <strong>Insuficiente (0.75 pts):</strong> Título confuso o no relacionado. 
+        </label>
+    </div>
 
-                <div class="criterio-block">
-                    <strong>3. Metodología (Máx. 5 pts)</strong>
-                    <div class="radio-group">
-                        <label><input type="radio" name="c3" value="5" required> Excelente (5.00)</label>
-                        <label><input type="radio" name="c3" value="3.75"> Bueno (3.75)</label>
-                        <label><input type="radio" name="c3" value="2.5"> Satisfactorio (2.50)</label>
-                        <label><input type="radio" name="c3" value="1.25"> Insuficiente (1.25)</label>
-                    </div>
-                </div>
+    <div class="criterio-block">
+        <h4>2. Objetivo e hipótesis (Máx 4 pts)</h4> 
+        <label>
+            <input type="radio" name="c2" value="4" required onchange="calcularTotalEnVivo()"> 
+            <strong>Excelente (4.0 pts):</strong> Objetivo claro y plenamente relacionado con la hipótesis. 
+        </label><br>
+        <label>
+            <input type="radio" name="c2" value="3"> 
+            <strong>Bueno (3.0 pts):</strong> Objetivo e hipótesis adecuados con ligeras inconsistencias. 
+        </label><br>
+        <label>
+            <input type="radio" name="c2" value="2"> 
+            <strong>Satisfactorio (2.0 pts):</strong> Objetivo o hipótesis poco claros. 
+        </label><br>
+        <label>
+            <input type="radio" name="c2" value="1"> 
+            <strong>Insuficiente (1.0 pts):</strong> No existe claridad ni relación. 
+        </label>
+    </div>
 
-                <div class="criterio-block">
-                    <strong>4. Resultados e impacto (Máx. 6 pts)</strong>
-                    <div class="radio-group">
-                        <label><input type="radio" name="c4" value="6" required> Excelente (6.00)</label>
-                        <label><input type="radio" name="c4" value="4.5"> Bueno (4.50)</label>
-                        <label><input type="radio" name="c4" value="3"> Satisfactorio (3.00)</label>
-                        <label><input type="radio" name="c4" value="1.5"> Insuficiente (1.50)</label>
-                    </div>
-                </div>
+    <div class="criterio-block">
+        <h4>3. Metodología (Máx 5 pts)</h4> 
+        <label>
+            <input type="radio" name="c3" value="5" required onchange="calcularTotalEnVivo()"> 
+            <strong>Excelente (5.0 pts):</strong> Metodología clara, ordenada y visualmente comprensible. 
+        </label><br>
+        <label>
+            <input type="radio" name="c3" value="3.75"> 
+            <strong>Bueno (3.75 pts):</strong> Metodología comprensible y organizada. 
+        </label><br>
+        <label>
+            <input type="radio" name="c3" value="2.5"> 
+            <strong>Satisfactorio (2.5 pts):</strong> Metodología poco clara o desordenada. 
+        </label><br>
+        <label>
+            <input type="radio" name="c3" value="1.25"> 
+            <strong>Insuficiente (1.25 pts):</strong> Metodología confusa o insuficiente. 
+        </label>
+    </div>
 
-                <div class="criterio-block">
-                    <strong>5. Conclusiones (Máx. 4 pts)</strong>
-                    <div class="radio-group">
-                        <label><input type="radio" name="c5" value="4" required> Excelente (4.00)</label>
-                        <label><input type="radio" name="c5" value="3"> Bueno (3.00)</label>
-                        <label><input type="radio" name="c5" value="2"> Satisfactorio (2.00)</label>
-                        <label><input type="radio" name="c5" value="1"> Insuficiente (1.00)</label>
-                    </div>
-                </div>
+    <div class="criterio-block">
+        <h4>4. Resultados e impacto (Máx 6 pts)</h4> 
+        <label>
+            <input type="radio" name="c4" value="6" required onchange="calcularTotalEnVivo()"> 
+            <strong>Excelente (6.0 pts):</strong> Resultados claros, relevantes y con impacto científico/social. 
+        </label><br>
+        <label>
+            <input type="radio" name="c4" value="4.5"> 
+            <strong>Bueno (4.5 pts):</strong> Resultados adecuados y comprensibles. 
+        </label><br>
+        <label>
+            <input type="radio" name="c4" value="3"> 
+            <strong>Satisfactorio (3.0 pts):</strong> Resultados limitados o poco claros. 
+        </label><br>
+        <label>
+            <input type="radio" name="c4" value="1.5"> 
+            <strong>Insuficiente (1.5 pts):</strong> Resultados confusos o suficientes. 
+        </label>
+    </div>
 
-                <div class="criterio-block">
-                    <strong>6. Referencias y sustento científico (Máx. 3 pts)</strong>
-                    <div class="radio-group">
-                        <label><input type="radio" name="c6" value="3" required> Excelente (3.00)</label>
-                        <label><input type="radio" name="c6" value="2.25"> Bueno (2.25)</label>
-                        <label><input type="radio" name="c6" value="1.5"> Satisfactorio (1.50)</label>
-                        <label><input type="radio" name="c6" value="0.75"> Insuficiente (0.75)</label>
-                    </div>
-                </div>
+    <div class="criterio-block">
+        <h4>5. Conclusiones (Máx 4 pts)</h4> 
+        <label>
+            <input type="radio" name="c5" value="4" required onchange="calcularTotalEnVivo()"> 
+            <strong>Excelente (4.0 pts):</strong> Conclusiones claras y relacionadas con el objetivo e hipótesis. 
+        </label><br>
+        <label>
+            <input type="radio" name="c5" value="3"> 
+            <strong>Bueno (3.0 pts):</strong> Conclusiones adecuadas. 
+        </label><br>
+        <label>
+            <input type="radio" name="c5" value="2"> 
+            <strong>Satisfactorio (2.0 pts):</strong> Conclusiones poco precisas. 
+        </label><br>
+        <label>
+            <input type="radio" name="c5" value="1"> 
+            <strong>Insuficiente (1.0 pts):</strong> No hay conclusiones claras. 
+        </label>
+    </div>
 
-                <div class="criterio-block">
-                    <strong>7. Exposición oral y dominio del tema (Máx. 5 pts)</strong>
-                    <div class="radio-group">
-                        <label><input type="radio" name="c7" value="5" required> Excelente (5.00)</label>
-                        <label><input type="radio" name="c7" value="3.75"> Bueno (3.75)</label>
-                        <label><input type="radio" name="c7" value="2.5"> Satisfactorio (2.50)</label>
-                        <label><input type="radio" name="c7" value="1.25"> Insuficiente (1.25)</label>
-                    </div>
-                </div>
+    <div class="criterio-block">
+        <h4>6. Referencias y sustento científico (Máx 3 pts)</h4> 
+        <label>
+            <input type="radio" name="c6" value="3" required onchange="calcularTotalEnVivo()"> 
+            <strong>Excelente (3.0 pts):</strong> Referencias pertinentes, actualizadas y correctamente citadas. 
+        </label><br>
+        <label>
+            <input type="radio" name="c6" value="2.25"> 
+            <strong>Bueno (2.25 pts):</strong> Referencias adecuadas con mínimos errores. 
+        </label><br>
+        <label>
+            <input type="radio" name="c6" value="1.5"> 
+            <strong>Satisfactorio (1.5 pts):</strong> Pocas referencias o errores importantes. 
+        </label><br>
+        <label>
+            <input type="radio" name="c6" value="0.75"> 
+            <strong>Insuficiente (0.75 pts):</strong> No presenta referencias. 
+        </label>
+    </div>
 
-                <div class="criterio-block">
-                    <strong>Observaciones / Comentarios:</strong>
-                    <textarea id="observaciones-input" class="input-text" rows="4" placeholder="Escribe aquí tu retroalimentación..." required></textarea>
-                </div>
+    <div class="criterio-block">
+        <h4>7. Exposición oral y dominio del tema (Máx 5 pts)</h4> 
+        <label>
+            <input type="radio" name="c7" value="5" required onchange="calcularTotalEnVivo()"> 
+            <strong>Excelente (5.0 pts):</strong> Expone con claridad, seguridad y responde preguntas correctamente. 
+        </label><br>
+        <label>
+            <input type="radio" name="c7" value="3.75"> 
+            <strong>Bueno (3.75 pts):</strong> Expone claramente con pequeñas dudas. 
+        </label><br>
+        <label>
+            <input type="radio" name="c7" value="2.5"> 
+            <strong>Satisfactorio (2.5 pts):</strong> Presenta dificultades al explicar. 
+        </label><br>
+        <label>
+            <input type="radio" name="c7" value="1.25"> 
+            <strong>Insuficiente (1.25 pts):</strong> Muestra poco dominio del tema. 
+        </label>
+    </div>
 
-                <button type="submit" class="btn">Enviar Evaluación</button>
-            </form>
-            
-            <div id="success-container" style="display:none;">
-                <div class="success-box">Evaluación registrada.</div>
-            </div>
-            
-        </div>
+    <div class="criterio-block">
+        <h4>Observaciones / Comentarios adicionales:</h4> [cite: 7]
+        <textarea id="observaciones-input" rows="4" style="width:100%; padding:10px; border-radius:5px;" placeholder="Escribe aquí tus comentarios para el alumno..."></textarea>
+    </div>
+
+    <div style="background: #ecf0f1; padding: 15px; margin: 20px 0; border-radius: 5px; text-align: center;">
+        <h3 style="margin: 0; color: #2c3e50;">Tu evaluación final es de: <span id="marcador-total-envivo" style="color: #2980b9; font-weight: bold;">0.00</span> / 30 puntos</h3> [cite: 4]
+    </div>
+
+    <button type="submit" class="btn">Enviar Evaluación</button>
+</form>
     </div>
 </div>
 
