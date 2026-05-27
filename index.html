@@ -34,6 +34,11 @@
 
     <div id="evaluador-section" class="view-section">
         <h2>Panel de Evaluador</h2>
+        <div class="criterio-block" style="border-left-color: #27ae60; margin-bottom: 20px;">
+	    <h3>Alumnos Evaluados</h3>
+	    <div id="lista-evaluados-container"></div>
+	</div>
+	
         <p>Ingresa el código del alumno que vas a evaluar:</p>
         <input type="text" id="student-code-input" class="input-text" placeholder="Código oficial del alumno...">
         <button class="btn" onclick="buscarAlumnoParaEvaluar()">Verificar Alumno</button>
@@ -126,6 +131,7 @@
                 <p style="text-align:center;">Descarga el archivo modificado y reemplázalo en el repositorio administrativo:</p>
                 <center><button class="btn btn-download" onclick="descargarJSON()">⬇️ Descargar Respuestas Actualizadas</button></center>
             </div>
+            
         </div>
     </div>
 </div>
