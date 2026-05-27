@@ -156,15 +156,16 @@ function buscarAlumnoParaEvaluar() {
     const hashEstudiante = CryptoJS.SHA256(studentCode).toString();
 
     if (!dbCodigos.alumnos.includes(hashEstudiante)) {
-        errDiv.innerText = "Error: El código de alumno ingresado no existe en los registros.";
+        errDiv.innerText = "El código de alumno ingresado no existe.";
         errDiv.style.display = "block";
-        return;
+        return; // Se detiene aquí y NO muestra la rúbrica
     }
 
+
     if (dbEvaluaciones[sesionHash] && dbEvaluaciones[sesionHash][hashEstudiante]) {
-        errDiv.innerText = "Ya has registrado una evaluación previa para este alumno.";
+        errDiv.innerText = "Ya has registrado una evaluación para este alumno.";
         errDiv.style.display = "block";
-        return;
+        return; 
     }
 
     alumnoCaliHash = hashEstudiante;
@@ -187,9 +188,10 @@ function buscarAlumnoParaEvaluar() {
     }
     
     document.getElementById('evaluando-nombre-lbl').innerText = `Evaluando a: ${nombreReal} (${studentCode})`;
+    
+    document.getElementById('marcador-total-envivo').innerText = "0.00";
+    
     rubricaDiv.style.display = "block";
-
-    document.getElementById('marcador-total-envivo').innerText = "0.00"; // Reinicia el marcador-
 }
 
 // Enviar y guardar la evaluación DIRECTO EN FIREBASE 
