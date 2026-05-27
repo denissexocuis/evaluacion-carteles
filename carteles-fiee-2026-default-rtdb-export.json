@@ -1,8 +1,220 @@
 {
   "evaluaciones": {
+    "005b7921929fbf96ca7fa18e0fb6ae3e29aa8c4685abd42bfe5afde1025c304a": {
+      "76fc5ea6ea9cf6e238831bd6bc86c0b99c9044a8c0f9553ec3aef90a2cfbd4b1": {
+        "comentarios": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac est sed felis convallis ultricies quis finibus lacus. Suspendisse dignissim ac nunc vitae dictum. Proin bibendum magna quis purus consectetur malesuada.",
+        "puntaje_total": 20,
+        "puntos_criterio_1": 1.5,
+        "puntos_criterio_2": 2,
+        "puntos_criterio_3": 2.5,
+        "puntos_criterio_4": 3,
+        "puntos_criterio_5": 3,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "d733511517a12c3b8d8d8fc25e7854b6b9a07b57c58c9b9021f2c07c122d9fa4": {
+        "comentarios": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac est sed felis convallis ultricies quis finibus lacus. Suspendisse dignissim ac nunc vitae dictum. Proin bibendum magna quis purus consectetur malesuada.",
+        "puntaje_total": 10,
+        "puntos_criterio_1": 0.75,
+        "puntos_criterio_2": 1,
+        "puntos_criterio_3": 1.25,
+        "puntos_criterio_4": 1.5,
+        "puntos_criterio_5": 1,
+        "puntos_criterio_6": 0.75,
+        "puntos_criterio_7": 3.75
+      }
+    },
+    "04fb732ecf9a1d10453d55de13961825631c51110cb919ad2be490647dedb9e0": {
+      "63747a689877e22cc9a17909828ac0eb15ad5cc916d872925ac08724edd508e9": {
+        "comentarios": "Todo nice. Bien chido la verdad. esta muy chido woasjdajsd",
+        "puntaje_total": 22.5,
+        "puntos_criterio_1": 2.25,
+        "puntos_criterio_2": 3,
+        "puntos_criterio_3": 3.75,
+        "puntos_criterio_4": 4.5,
+        "puntos_criterio_5": 3,
+        "puntos_criterio_6": 2.25,
+        "puntos_criterio_7": 3.75
+      },
+      "7a3f6353eb68c994d7e41846b051d723dd09289bd7559145158c206ecb55f04c": {
+        "comentarios": "asdasdasd",
+        "puntaje_total": 24.5,
+        "puntos_criterio_1": 2.25,
+        "puntos_criterio_2": 3,
+        "puntos_criterio_3": 3.75,
+        "puntos_criterio_4": 4.5,
+        "puntos_criterio_5": 3,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "e8e1e5c73b2286d9172a17787141c0d71d0a80fe2af26f7954e3d03bec458f29": {
+        "comentarios": "",
+        "puntaje_total": 19.5,
+        "puntos_criterio_1": 2.25,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 1.25,
+        "puntos_criterio_4": 4.5,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 2.25,
+        "puntos_criterio_7": 1.25
+      }
+    },
+    "37dcdee04b244545848183e7d26e46b150e629dd65dc951fd345ed1694c464e0": {
+      "7a3f6353eb68c994d7e41846b051d723dd09289bd7559145158c206ecb55f04c": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "e8e1e5c73b2286d9172a17787141c0d71d0a80fe2af26f7954e3d03bec458f29": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      }
+    },
+    "3cf52f33b65db8f07638d9c27e22158b36090841dc241e0811f562934edfbe08": {
+      "58d3423e9f1e5d572d8f21b0c06f34c0b639e282599ad1d7f40717ca3199aba4": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "a481daac79dc9a34d49455d9f66a7b967abd881a78c33ddb8a2be0e89da779c7": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      }
+    },
+    "3fe43acc85505c5e85ed52db41a98a7a4983baa908ea61ee4eb6897a1397769a": {
+      "5227d9fbc38b2ac12ac237205ac2049e22e7b878872ed8e386c9f8d0116fc89d": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "5e74a25602c52fee0bd4ffcf27712b317ab6c95a468b8fcd0f7e88f7d66151f2": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "6587ffb652796179a6dead6ad4e4eb05edaf75adc883f30ee5be3b916f37ce31": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      }
+    },
+    "45491d3086151945a9b80c2336ccd210b7b02299a9e1dbc9f2009261307c59b4": {
+      "7a3f6353eb68c994d7e41846b051d723dd09289bd7559145158c206ecb55f04c": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "e8e1e5c73b2286d9172a17787141c0d71d0a80fe2af26f7954e3d03bec458f29": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      }
+    },
+    "a2dbb93a5fbd1d63cecc748519d312480c0541060a013131eadda0869671564b": {
+      "7a3f6353eb68c994d7e41846b051d723dd09289bd7559145158c206ecb55f04c": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "e8e1e5c73b2286d9172a17787141c0d71d0a80fe2af26f7954e3d03bec458f29": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      }
+    },
     "b68c0aed49d81ff40fbc9829631007146751ffbfa6ff1a6088651a4c4ce072bb": {
       "4b691bb1962a229cc4665f468ec183dde0408db8dbe647e494a8504e02dacab3": {
         "comentarios": "jsjskka",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "5e74a25602c52fee0bd4ffcf27712b317ab6c95a468b8fcd0f7e88f7d66151f2": {
+        "comentarios": ".",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "6587ffb652796179a6dead6ad4e4eb05edaf75adc883f30ee5be3b916f37ce31": {
+        "comentarios": "",
         "puntaje_total": 30,
         "puntos_criterio_1": 3,
         "puntos_criterio_2": 4,
@@ -25,12 +237,113 @@
       }
     },
     "cff1fa1b4fb9726f0452243a61cae0e7c5891b7ddd96ee049a98d81fc55098e1": {
+      "4b691bb1962a229cc4665f468ec183dde0408db8dbe647e494a8504e02dacab3": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "5227d9fbc38b2ac12ac237205ac2049e22e7b878872ed8e386c9f8d0116fc89d": {
+        "comentarios": "...",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "5e74a25602c52fee0bd4ffcf27712b317ab6c95a468b8fcd0f7e88f7d66151f2": {
+        "comentarios": "hola",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
       "63747a689877e22cc9a17909828ac0eb15ad5cc916d872925ac08724edd508e9": {
         "comentarios": "hola",
         "puntaje_total": 30,
         "puntos_criterio_1": 3,
         "puntos_criterio_2": 4,
         "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "702910ad127d5602cdb42917ce705ad13e2d07045821381e384a50e9fa43245b": {
+        "comentarios": "E-0002",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "cb1314454188d153674955181603fd7d70dde04793a3352e922e484a94dc9206": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "d733511517a12c3b8d8d8fc25e7854b6b9a07b57c58c9b9021f2c07c122d9fa4": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      }
+    },
+    "e882001c643d1a5cf0638b800bcd2db0b31106e0dcb5b129ac3cd087736c4f29": {
+      "6587ffb652796179a6dead6ad4e4eb05edaf75adc883f30ee5be3b916f37ce31": {
+        "comentarios": "",
+        "puntaje_total": 30,
+        "puntos_criterio_1": 3,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "702910ad127d5602cdb42917ce705ad13e2d07045821381e384a50e9fa43245b": {
+        "comentarios": "bueno",
+        "puntaje_total": 29.25,
+        "puntos_criterio_1": 2.25,
+        "puntos_criterio_2": 4,
+        "puntos_criterio_3": 5,
+        "puntos_criterio_4": 6,
+        "puntos_criterio_5": 4,
+        "puntos_criterio_6": 3,
+        "puntos_criterio_7": 5
+      },
+      "cd00e0da8bda88cdec0739351f32986c74df38ce4e8034f3d60dfcdb093c1527": {
+        "comentarios": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac est sed felis convallis ultricies quis finibus lacus. Suspendisse dignissim ac nunc vitae dictum. Proin bibendum magna quis purus consectetur malesuada.",
+        "puntaje_total": 21,
+        "puntos_criterio_1": 0.75,
+        "puntos_criterio_2": 1,
+        "puntos_criterio_3": 1.25,
         "puntos_criterio_4": 6,
         "puntos_criterio_5": 4,
         "puntos_criterio_6": 3,

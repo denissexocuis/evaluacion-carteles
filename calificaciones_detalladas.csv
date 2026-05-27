@@ -1,4 +1,15 @@
-﻿Código,Nombre Alumno,Calificación de Dr. Adrián Sánchez Vidal,Calificación de M.C. Luis Héctor Porragas Beltrán,Calificación Promedio,Observaciones
-A-0002,Erick Ramón Comi Isidoro,30.0,-,30.0,[Dr. Adrián Sánchez Vidal]: jsjskka
-A-0001,Martha Alejandra Zavaleta Zamora,30.0,-,30.0,[Dr. Adrián Sánchez Vidal]: jsjskka
-B-0002,Martha Denisse Lara Xocuis,-,30.0,30.0,[M.C. Luis Héctor Porragas Beltrán]: hola
+﻿Código,Nombre Alumno,Calificación de Dr. Adrián Sánchez Vidal,Calificación de Dr. Jose Manuel Cartas Sanchez,Calificación de Dr. Rogelio de Jesús Portillo Vélez,Calificación de Dr. Ruben Ruíz Ramos,Calificación de Dra. Carolina Palmeros Exsome,Calificación de Dra. Ma. Guadalupe Sánchez Otera,Calificación de Ing. Gerardo Gonzalez Chavez,Calificación de M.C. Luis Héctor Porragas Beltrán,Calificación de Mtra. Rosa Isela Solano Perez,Calificación de Mtra. Yuliana Berumen Díaz,Calificación Promedio,Observaciones
+D-0001,Karina Arlet Xalanda Coyolt,-,-,-,-,-,-,-,-,30.0,-,30.0,
+D-0002,Jesús Antonio Martínez Benavides,-,-,-,-,-,-,-,-,30.0,-,30.0,
+E-0004,Juan Francisco Portillo Trujillo,-,-,-,-,-,-,30.0,30.0,-,-,30.0,[M.C. Luis Héctor Porragas Beltrán]: ...
+E-0001,Celina Hernández Gonzalez,30.0,-,-,-,-,-,30.0,30.0,-,-,30.0,[Dr. Adrián Sánchez Vidal]: . | [M.C. Luis Héctor Porragas Beltrán]: hola
+E-0003,Haziel Lopez Castillo,30.0,30.0,-,-,-,-,30.0,-,-,-,30.0,
+A-0002,Erick Ramón Comi Isidoro,30.0,-,-,-,-,-,-,30.0,-,-,30.0,[Dr. Adrián Sánchez Vidal]: jsjskka
+A-0001,Martha Alejandra Zavaleta Zamora,30.0,-,-,-,-,-,-,30.0,-,-,30.0,[Dr. Adrián Sánchez Vidal]: jsjskka
+E-0002,Luis Gerardo León Salamanca,-,29.25,-,-,-,-,-,30.0,-,-,29.62,[M.C. Luis Héctor Porragas Beltrán]: E-0002 | [Dr. Jose Manuel Cartas Sanchez]: bueno
+B-0001,Mariana Rivera Felipe,-,-,-,30.0,30.0,30.0,-,-,-,24.5,28.62,[Mtra. Yuliana Berumen Díaz]: asdasdasd
+B-0004,Juan Pablo Salas Gonzalez,-,-,-,30.0,30.0,30.0,-,-,-,19.5,27.38,
+B-0002,Martha Denisse Lara Xocuis,-,-,-,-,-,-,-,30.0,-,22.5,26.25,[Mtra. Yuliana Berumen Díaz]: Todo nice. Bien chido la verdad. esta muy chido woasjdajsd | [M.C. Luis Héctor Porragas Beltrán]: hola
+E-0005,Raziel de Jesús Rodriguez Perez,-,21.0,-,-,-,-,-,-,-,-,21.0,"[Dr. Jose Manuel Cartas Sanchez]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac est sed felis convallis ultricies quis finibus lacus. Suspendisse dignissim ac nunc vitae dictum. Proin bibendum magna quis purus consectetur malesuada."
+C-0001,Paola Monserrat Witrago Castro,-,-,20.0,-,-,-,-,-,-,-,20.0,"[Dr. Rogelio de Jesús Portillo Vélez]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac est sed felis convallis ultricies quis finibus lacus. Suspendisse dignissim ac nunc vitae dictum. Proin bibendum magna quis purus consectetur malesuada."
+C-0003,Yahaira García Martínez,-,-,10.0,-,-,-,-,30.0,-,-,20.0,"[Dr. Rogelio de Jesús Portillo Vélez]: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac est sed felis convallis ultricies quis finibus lacus. Suspendisse dignissim ac nunc vitae dictum. Proin bibendum magna quis purus consectetur malesuada."
