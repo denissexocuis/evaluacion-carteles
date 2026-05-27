@@ -56,7 +56,7 @@ function actualizarTablaEvaluados() {
     
 
     if (dbEvaluaciones[sesionHash] && Object.keys(dbEvaluaciones[sesionHash]).length > 0) {
-        let tabla = `<table><tr><th>Códigos de Alumnos ya Evaluados por ti</th></tr>`;
+        let tabla = `<table><tr><th>Códigos de Alumnos ya evaluados</th></tr>`;
         
         for (let hashEstudiante in dbEvaluaciones[sesionHash]) {
             // Buscamos cuál código plano coincide con ese hash
@@ -222,15 +222,4 @@ function guardarEvaluacion(event) {
 
     document.getElementById('rubrica-form').style.display = "none";
     document.getElementById('success-container').style.display = "block";
-}
-
-// xescargar archivo JSON actualizado
-function descargarJSON() {
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dbEvaluaciones, null, 2));
-    const downloadAnchor = document.createElement('a');
-    downloadAnchor.setAttribute("href", dataStr);
-    downloadAnchor.setAttribute("download", "evaluaciones.json");
-    document.body.appendChild(downloadAnchor);
-    downloadAnchor.click();
-    downloadAnchor.remove();
 }
