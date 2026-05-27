@@ -19,25 +19,25 @@ window.onload = async function()
 };
 
 // validar el acceso en la pantalla de inicio
-function verificarAcceso()
-{
+function verificarAcceso() {
     const codigoInput = document.getElementById('access-code').value.trim();
     const errorDiv = document.getElementById('login-error');
     errorDiv.style.display = "none";
 
     if (!codigoInput) return;
 
-    // calcular SHA-256 del código ingresado
+    // calcular hash para verificar si es un usuario válido
     const hash = CryptoJS.SHA256(codigoInput).toString();
 
-    if (dbCodigos.evaluadores.includes(hash))
-    {
+    if (dbCodigos.evaluadores.includes(hash)) {
         sesionHash = hash;
+        
+        codigoPlanoProfesor = codigoInput.substring(codigoInput.length - 4); 
+        
         document.getElementById('login-section').style.display = "none";
         document.getElementById('evaluador-section').style.display = "block";
         document.getElementById('header-app').querySelector('p').innerText = "Evaluador.";
-    } else if (dbCodigos.alumnos.includes(hash))
-    {
+    } else if (dbCodigos.alumnos.includes(hash)) {
         sesionHash = hash;
         document.getElementById('login-section').style.display = "none";
         mostrarVistaAlumno(hash);
@@ -51,7 +51,7 @@ function verificarAcceso()
 function mostrarVistaAlumno(hashAlumno)
 {
     document.getElementById('alumno-section').style.display = "block";
-    document.getElementById('header-app').querySelector('p').innerText = "Consulta de Resultados Estudiantiles (Anónimo).";
+    document.getElementById('header-app').querySelector('p').innerText = "Consulta de Resultados Estudiantiles.";
     
     let conteo = 0;
     let sumas = [0,0,0,0,0,0,0];
@@ -105,7 +105,7 @@ function mostrarVistaAlumno(hashAlumno)
     }
 }
 
-// Buscar código de alumno y revelar nombre al evaluador
+// buscar código de alumno y revelar nombre al evaluador
 function buscarAlumnoParaEvaluar() {
     const studentCode = document.getElementById('student-code-input').value.trim();
     const errDiv = document.getElementById('evaluador-error');
@@ -127,19 +127,20 @@ function buscarAlumnoParaEvaluar() {
     }
 
     if (dbEvaluaciones[sesionHash] && dbEvaluaciones[sesionHash][hashEstudiante]) {
-        errDiv.innerText = "¡Validación denegada! Ya has registrado una evaluación previa para este alumno.";
+        errDiv.innerText = "Ya has registrado una evaluación para este alumno.";
         errDiv.style.display = "block";
         return;
     }
 
     alumnoCaliHash = hashEstudiante;
-    const nombreReal = dbNombres[studentCode] || `Código: ${studentCode} (Nombre no disponible)`;
+    
+    let nombreReal = `Código: ${studentCode}`;
     
     document.getElementById('evaluando-nombre-lbl').innerText = `Evaluando a: ${nombreReal}`;
     rubricaDiv.style.display = "block";
 }
 
-// Guardar evaluación en la memoria local del navegador
+// guardar evaluación en la memoria local del navegador
 function guardarEvaluacion(event) {
     event.preventDefault();
 
@@ -174,7 +175,7 @@ function guardarEvaluacion(event) {
     document.getElementById('success-container').style.display = "block";
 }
 
-// Descargar archivo JSON actualizado
+// descargar archivo JSON actualizado
 function descargarJSON() {
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(dbEvaluaciones, null, 2));
     const downloadAnchor = document.createElement('a');

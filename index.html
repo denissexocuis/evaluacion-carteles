@@ -7,7 +7,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -27,14 +27,14 @@
         <h2>Estado de tu Evaluación</h2>
         <div id="alumno-resumen"></div>
         <div id="alumno-detalles" style="display:none;">
-            <h3>Desglose de Resultados y Comentarios</h3>
+            <h3>Resultados y Comentarios</h3>
             <div id="tabla-resultados-alumno"></div>
         </div>
     </div>
 
     <div id="evaluador-section" class="view-section">
-        <h2>Panel del Evaluador</h2>
-        <p>Por favor, ingresa el código del alumno que vas a evaluar (Ej. B-0002):</p>
+        <h2>Panel de Evaluador</h2>
+        <p>Ingresa el código del alumno que vas a evaluar:</p>
         <input type="text" id="student-code-input" class="input-text" placeholder="Código oficial del alumno...">
         <button class="btn" onclick="buscarAlumnoParaEvaluar()">Verificar Alumno</button>
         <div id="evaluador-error" class="alert" style="display:none;"></div>
@@ -122,7 +122,7 @@
             </form>
             
             <div id="success-container" style="display:none;">
-                <div class="success-box">¡Evaluación procesada con éxito!</div>
+                <div class="success-box">Evaluación registrada.</div>
                 <p style="text-align:center;">Descarga el archivo modificado y reemplázalo en el repositorio administrativo:</p>
                 <center><button class="btn btn-download" onclick="descargarJSON()">⬇️ Descargar Respuestas Actualizadas</button></center>
             </div>
